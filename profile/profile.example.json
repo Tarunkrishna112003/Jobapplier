@@ -1,0 +1,141 @@
+{
+  "_comment": "Template answer bank. Copy to profile/profile.json and fill in with your own details. profile.json is gitignored - it holds personal data and must never be committed. Fields marked TODO_CONFIRM are left blank on forms rather than guessed at.",
+
+  "identity": {
+    "first_name": "First",
+    "last_name": "Last",
+    "preferred_name": "First",
+    "full_name": "First Last",
+    "email": "you@example.com",
+    "phone": "+1-555-555-5555",
+    "phone_digits": "5555555555",
+    "phone_country_code": "+1"
+  },
+
+  "address": {
+    "street": "TODO_CONFIRM",
+    "city": "Your City",
+    "state": "CA",
+    "state_full": "California",
+    "postal_code": "00000",
+    "country": "United States",
+    "country_code": "US"
+  },
+
+  "links": {
+    "linkedin": "https://www.linkedin.com/in/your-handle",
+    "github": "TODO_CONFIRM",
+    "portfolio": "",
+    "website": ""
+  },
+
+  "work_authorization": {
+    "_note": "Set these to match your own status. 'Authorized to work now' and 'will need sponsorship later' can BOTH be true at once - forms ask them as separate questions, so answer each on its own terms.",
+    "status": "TODO_CONFIRM",
+    "authorized_to_work_us": true,
+    "requires_sponsorship_now_or_future": false,
+    "requires_sponsorship_answer": "No",
+    "visa_type": "",
+    "ead_approved": false,
+    "ead_start": "",
+    "ead_end": "",
+    "citizenship": "TODO_CONFIRM"
+  },
+
+  "education": [
+    {
+      "school": "Your University",
+      "degree": "Master of Science",
+      "field": "Computer Science",
+      "location": "City, ST",
+      "start": "2024-08",
+      "end": "2026-05",
+      "gpa": "TODO_CONFIRM",
+      "current": false
+    }
+  ],
+
+  "experience": [
+    {
+      "company": "Current Employer",
+      "title": "Software Engineer",
+      "location": "City, ST",
+      "start": "2024-06",
+      "end": "",
+      "current": true,
+      "summary": "One or two lines on what you built and its measurable impact."
+    }
+  ],
+
+  "skills": {
+    "languages": ["Python", "Java", "TypeScript", "SQL"],
+    "backend": ["Node.js", "Spring Boot", "REST APIs", "Microservices"],
+    "frontend": ["React", "TypeScript"],
+    "cloud": ["AWS", "Docker", "Kubernetes"],
+    "ml": ["TensorFlow", "PyTorch", "Model Deployment"],
+    "data": ["PostgreSQL", "MongoDB", "Redis", "Kafka"],
+    "devops": ["Git", "CI/CD", "Monitoring", "Agile/Scrum"]
+  },
+
+  "certifications": [
+    "Your Certification (Month Year)"
+  ],
+
+  "highlights": [
+    "A notable achievement worth surfacing on an application."
+  ],
+
+  "preferences": {
+    "desired_titles": [
+      "Software Engineer",
+      "Software Development Engineer",
+      "Full Stack Engineer",
+      "Backend Engineer",
+      "Machine Learning Engineer",
+      "AI Engineer",
+      "Data Engineer",
+      "Platform Engineer",
+      "Software Engineer New Grad"
+    ],
+    "locations_preferred": ["Your City, ST", "San Francisco Bay Area", "Remote"],
+    "open_to_relocate": true,
+    "open_to_remote": true,
+    "earliest_start_date": "TODO_CONFIRM",
+    "desired_salary": "Competitive / negotiable",
+    "desired_salary_number": "TODO_CONFIRM",
+    "willing_to_travel": true,
+    "notice_period": "2 weeks"
+  },
+
+  "screening_defaults": {
+    "how_did_you_hear": "Company careers site",
+    "previously_employed_here": "No",
+    "related_to_employee": "No",
+    "non_compete": "No",
+    "criminal_record": "No",
+    "can_perform_essential_functions": "Yes",
+    "over_18": "Yes",
+    "drivers_license": "Yes",
+    "willing_background_check": "Yes",
+    "willing_drug_test": "Yes",
+    "government_security_clearance": "No",
+    "years_of_experience": "0",
+    "cover_letter_needed": true,
+    "marketing_opt_in": "No"
+  },
+
+  "voluntary_self_id": {
+    "_note": "Voluntary EEO fields. Declining is always a valid, truthful answer and never disadvantages an application. Change only if you want to self-identify.",
+    "gender": "Decline to self-identify",
+    "race_ethnicity": "Decline to self-identify",
+    "hispanic_latino": "Decline to self-identify",
+    "veteran_status": "I don't wish to answer",
+    "disability_status": "I do not want to answer"
+  },
+
+  "documents": {
+    "resume": "profile/your_resume.pdf",
+    "cover_letter_template": "profile/cover_letter_template.md",
+    "transcript": ""
+  }
+}

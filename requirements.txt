@@ -1,0 +1,9 @@
+httpx>=0.28
+openpyxl>=3.1
+PyYAML>=6.0
+rapidfuzz>=3.14
+rich>=15.0
+playwright>=1.62
+pypdf>=6.0
+fastapi>=0.141
+uvicorn[standard]>=0.52

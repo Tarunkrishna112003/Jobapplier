@@ -1,0 +1,24 @@
+# Secrets - never commit
+secrets.json
+.env
+*.pem
+*.key
+
+# Browser profile holds live session cookies for every portal you log into
+.browser-profile/
+
+# Runtime data: tracker DB, screenshots of filled forms with personal data
+data/
+!data/.gitkeep
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+
+# Personal documents and the filled-in answer bank
+profile/*.pdf
+profile/*.docx
+profile/profile.json
+!profile/profile.example.json

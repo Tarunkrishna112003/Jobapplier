@@ -1,0 +1,150 @@
+# Jobapplier configuration.
+# Edit this file to change what gets discovered and how it's ranked.
+
+sources:
+  companies_xlsx: "../US_100_Visa_Sponsor_Companies_Redesigned.xlsx"
+  companies_sheet: null          # null = auto-pick the sheet with the most rows
+  profile: "profile/profile.json"
+
+# Role families to search for. `must` terms gate inclusion; `boost` terms
+# raise the score. Titles are matched case-insensitively.
+role_families:
+  swe_newgrad:
+    label: "Software Engineer (New Grad / Entry)"
+    weight: 1.0
+    must: ["software engineer", "software development engineer", "sde", "software developer"]
+    boost: ["new grad", "university grad", "early career", "entry level", "i ", " i", "associate", "graduate", "campus", "2026"]
+  fullstack_backend:
+    label: "Full-stack / Backend Engineer"
+    weight: 1.0
+    must: ["full stack", "fullstack", "full-stack", "backend", "back end", "back-end", "server", "api engineer", "software engineer"]
+    boost: ["node", "spring", "java", "python", "react", "typescript", "microservice", "distributed", "rest"]
+  ml_ai:
+    label: "ML / AI Engineer"
+    weight: 1.0
+    must: ["machine learning", "ml engineer", "ai engineer", "deep learning", "computer vision", "applied scientist", "mlops"]
+    boost: ["tensorflow", "pytorch", "inference", "model deployment", "opencv", "llm"]
+  data_platform:
+    label: "Data Engineer / Platform"
+    weight: 0.9
+    must: ["data engineer", "data platform", "platform engineer", "data infrastructure", "analytics engineer"]
+    boost: ["kafka", "spark", "etl", "pipeline", "airflow", "warehouse", "sql"]
+
+# Titles that are never a fit regardless of keyword hits.
+title_exclusions:
+  - "principal"
+  - "staff"
+  - "director"
+  - "manager"
+  - "head of"
+  - "vp "
+  - "vice president"
+  - "intern"
+  - "internship"
+  - "co-op"
+  - "phd"
+  - "sales"
+  - "recruiter"
+  - "marketing"
+  - "hardware engineer"
+  - "mechanical"
+  - "asic"
+  - "rtl"
+  - "verification engineer"
+  - "technician"
+
+# Seniority ceiling: drop postings demanding more years than this.
+max_years_experience: 5
+
+locations:
+  # Ranked - earlier entries score higher.
+  # Tier 1 is your home metro - edit it to wherever you actually are.
+  preferred:
+    - ["your city", "your suburb"]
+    - ["san francisco", "bay area", "san jose", "sunnyvale", "santa clara", "mountain view", "palo alto", "cupertino", "menlo park", "redwood city", "fremont", "oakland", "berkeley"]
+    - ["remote", "anywhere", "work from home", "distributed"]
+    - ["seattle", "bellevue", "redmond", "new york", "austin", "los angeles", "san diego", "irvine"]
+    - ["phoenix", "scottsdale", "chandler", "arizona"]
+  # Hard rejects. "Dublin" alone must not read as Dublin, CA when the posting
+  # means Dublin, Ireland - so foreign locations are excluded explicitly.
+  exclude_countries:
+    - "ireland"
+    - "united kingdom"
+    - "uk"
+    - "canada"
+    - "india"
+    - "singapore"
+    - "australia"
+    - "japan"
+    - "germany"
+    - "france"
+    - "netherlands"
+    - "poland"
+    - "romania"
+    - "brazil"
+    - "mexico"
+    - "china"
+    - "taiwan"
+    - "korea"
+    - "israel"
+    - "spain"
+    - "italy"
+    - "sweden"
+    - "switzerland"
+    - "emea"
+    - "apac"
+    - "latam"
+    - "toronto"
+    - "vancouver"
+    - "london"
+    - "berlin"
+    - "bengaluru"
+    - "bangalore"
+    - "hyderabad"
+    - "pune"
+    - "gurgaon"
+    - "tokyo"
+    - "sydney"
+    - "amsterdam"
+    - "paris"
+    - "dublin, ireland"
+
+  # Only US roles - the visa premise makes non-US postings useless here.
+  require_country: ["united states", "usa", "us", "u.s."]
+  allow_unknown_country: true    # many boards omit country; don't drop those
+
+scoring:
+  min_score: 0.35                # below this a job never enters the queue
+  weights:
+    title_match: 0.45
+    location: 0.25
+    skill_overlap: 0.20
+    freshness: 0.10
+
+discovery:
+  max_jobs_per_company: 60
+  concurrency: 8
+  timeout_seconds: 30
+  # Search strings handed to query-based portals (Amazon, Microsoft, Workday).
+  search_queries:
+    - "software engineer"
+    - "backend engineer"
+    - "full stack engineer"
+    - "machine learning engineer"
+    - "data engineer"
+
+apply:
+  # "review" = fill everything, park at the final Submit, wait for approval.
+  # Nothing is ever submitted without you clicking approve.
+  mode: review
+  headless: false                # watch the browser work; required for login steps
+  browser_profile: ".browser-profile"
+  slow_mo_ms: 120
+  screenshot_before_submit: true
+  per_job_timeout_seconds: 180
+
+storage:
+  db: "data/applications.db"
+  companies_json: "data/companies.json"
+  jobs_json: "data/jobs.json"
+  screenshots: "data/screenshots"
